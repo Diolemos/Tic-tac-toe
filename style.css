@@ -13,6 +13,39 @@ body{
     grid-template-rows: repeat(3,1fr);
     width:400px ;
     height:400px ;
-    border: 2px outset black;
+    /* border: 2px outset black; */
     
-},
+    
+}
+#cel1{
+    border-right: 1px solid black ;
+    border-bottom:1px solid black ;
+}
+#cel2{
+    border-right: 1px solid black ;
+    border-bottom:1px solid black ;
+}
+#cel3{
+    /* border-right: 1px solid black ; */
+    border-bottom:1px solid black ;
+}
+#cel4{
+    border-right: 1px solid black ;
+    border-bottom:1px solid black ;
+}
+#cel5{
+    border-right: 1px solid black ;
+    border-bottom:1px solid black ;
+}
+#cel6{
+    /* border-right: 1px solid black ; */
+    border-bottom:1px solid black ;
+}
+#cel7{
+    border-right: 1px solid black;
+}
+#cel8{
+    border-right: 1px solid black ;
+    /* border-left:1px solid black ; */
+}
+
