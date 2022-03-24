@@ -18,7 +18,7 @@ const playerfactory = function (marker) {
 
     const updateGameboard = function () {
 
-        gameBoard.cells[turn - 1] = this.marker
+        gameBoard.cells[turn - 1] = this.marker.toLowerCase()
 
     }
     return { marker, fillCell, updateGameboard }
@@ -32,9 +32,7 @@ const player2 = playerfactory('O')
 const game = (function () {
     const tiles = document.querySelectorAll('.boardcell');
 
-
-
-
+    function checkForWinner() { }
 
 
     tiles.forEach(function (tile) {
