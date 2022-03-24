@@ -1,20 +1,37 @@
+'use strict'
+
+
 let gameBoard = {
-    tiles: [null, null, null, null, null, null, null, null, null,]
+    cells: [null, null, null, null, null, null, null, null, null,]
 }
 
 
-const gameBoardArr = []
 
-for (let i = 0; i < 9; i++) {
-    gameBoardArr.push('')
+//playerFactory
+function playerfactory(marker) {
+    const fillCell = () => cell.textContext = this.marker
+    return { marker, fillCell }
 }
+//Players
+const player1 = playerfactory('x');
+const player2 = playerfactory('O')
 
-let allCells = document.querySelectorAll('.boardcell')
 
-allCells.forEach((cell) => {
-    cell.addEventListener('click', () => {
-        console.log('test')
+//game, main module
+const game = (function () {
+    let tiles = document.querySelectorAll('.boardcell');
+
+
+    tiles.forEach(function (tile) {
+        tile.addEventListener('click', function (event) {
+            let cell = event.target
+
+            if (cell.innerText !== '') {
+                return
+            }
+        })
     })
-})
+
+})()
 
 
