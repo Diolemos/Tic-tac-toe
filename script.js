@@ -4,12 +4,15 @@
 let gameBoard = {
     cells: [null, null, null, null, null, null, null, null, null,]
 }
-
+let turn = 1
 
 
 //playerFactory
-function playerfactory(marker) {
-    const fillCell = () => cell.textContext = this.marker
+const playerfactory = function (marker) {
+    const fillCell = function (x) {
+        x.innerText = this.marker;
+        turn++
+    }
     return { marker, fillCell }
 }
 //Players
@@ -19,7 +22,8 @@ const player2 = playerfactory('O')
 
 //game, main module
 const game = (function () {
-    let tiles = document.querySelectorAll('.boardcell');
+    const tiles = document.querySelectorAll('.boardcell');
+
 
 
     tiles.forEach(function (tile) {
@@ -29,6 +33,13 @@ const game = (function () {
             if (cell.innerText !== '') {
                 return
             }
+
+            if (turn % 2 == 1) {
+                player1.fillCell(cell)
+            } else {
+                player2.fillCell(cell)
+            }
+
         })
     })
 
