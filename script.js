@@ -7,13 +7,21 @@ let gameBoard = {
 let turn = 1
 
 
+
+
 //playerFactory
 const playerfactory = function (marker) {
+
     const fillCell = function (x) {
         x.innerText = this.marker;
-        turn++
     }
-    return { marker, fillCell }
+
+    const updateGameboard = function () {
+
+        gameBoard.cells[turn - 1] = this.marker
+
+    }
+    return { marker, fillCell, updateGameboard }
 }
 //Players
 const player1 = playerfactory('x');
@@ -23,6 +31,9 @@ const player2 = playerfactory('O')
 //game, main module
 const game = (function () {
     const tiles = document.querySelectorAll('.boardcell');
+
+
+
 
 
 
@@ -36,8 +47,13 @@ const game = (function () {
 
             if (turn % 2 == 1) {
                 player1.fillCell(cell)
+                player1.updateGameboard()
+                turn++
+
             } else {
                 player2.fillCell(cell)
+                player2.updateGameboard()
+                turn++
             }
 
         })
