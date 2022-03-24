@@ -31,8 +31,13 @@ const player2 = playerfactory('O')
 //game, main module
 const game = (function () {
     const tiles = document.querySelectorAll('.boardcell');
+    const title = document.querySelector('#title')
+    function checkForWinner() {
 
-    function checkForWinner() { }
+
+
+
+    }
 
 
     tiles.forEach(function (tile) {
@@ -46,11 +51,13 @@ const game = (function () {
             if (turn % 2 == 1) {
                 player1.fillCell(cell)
                 player1.updateGameboard()
+                title.innerText = '2'
                 turn++
 
             } else {
                 player2.fillCell(cell)
                 player2.updateGameboard()
+                title.innerText = '1'
                 turn++
             }
 
