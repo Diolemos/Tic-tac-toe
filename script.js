@@ -16,7 +16,7 @@ const playerfactory = function (marker) {
         x.innerText = this.marker;
     }
 
-    const updateGameboard = function () {
+    const updateGameboard = function () {  //places the current player's marker on the desired spot
 
         gameBoard.cells[turn - 1] = this.marker.toLowerCase()
 
@@ -32,7 +32,7 @@ const player2 = playerfactory('O')
 const game = (function () {
     const tiles = document.querySelectorAll('.boardcell');
     const title = document.querySelector('#title')
-    function checkForWinner() {
+    function checkForWinner() { //Looks the board for winning combinations
 
         const combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
