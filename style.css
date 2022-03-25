@@ -18,34 +18,34 @@ body{
 
 
 
-#cel1{
+.cell1{
     border-right: 1px solid black ;
     border-bottom:1px solid black ;
 }
-#cel2{
+.cell2{
     border-right: 1px solid black ;
     border-bottom:1px solid black ;
 }
-#cel3{
+.cell3{
     /* border-right: 1px solid black ; */
     border-bottom:1px solid black ;
 }
-#cel4{
+.cell4{
     border-right: 1px solid black ;
     border-bottom:1px solid black ;
 }
-#cel5{
+.cell5{
     border-right: 1px solid black ;
     border-bottom:1px solid black ;
 }
-#cel6{
+.cell6{
     /* border-right: 1px solid black ; */
     border-bottom:1px solid black ;
 }
-#cel7{
+.cell7{
     border-right: 1px solid black;
 }
-#cel8{
+.cell8{
     border-right: 1px solid black ;
     /* border-left:1px solid black ; */
 }
