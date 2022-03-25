@@ -34,10 +34,21 @@ const game = (function () {
     const title = document.querySelector('#title')
     function checkForWinner() {
 
+        const combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
+        for (let i = 0; i <= 8; i++) {
+            let a = combinations[i];
+            console.log(a)
+        }
 
+        if (gameBoard.cells[a[0]] == 'x' && gameBoard.cells[a[1]] == 'x' && gameBoard.cells[a[2]] == 'x') {
+            //hey you've won, x
+        } else if (gameBoard.cells[a[0]] == 'o' && gameBoard.cells[a[1]] == 'o' && gameBoard.cells[a[2]] == 'o') {
+            //hey, O, you rock
+        }
 
     }
+
 
 
     tiles.forEach(function (tile) {
