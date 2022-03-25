@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 
 let gameBoard = {
@@ -17,7 +17,7 @@ const playerfactory = function (marker) {
     }
 
     const updateGameboard = function (event) {  //places the current player's marker on the desired spot
-        console.log(event)
+
         gameBoard.cells[event] = this.marker.toLowerCase()
 
     }
@@ -36,9 +36,10 @@ const game = (function () {
 
         const combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
-        for (let i = 0; i <= 8; i++) {
+        for (let i = 0; i <= 7; i++) {
             let comb = combinations[i];
-            // console.log(a)
+            console.log(comb)
+
             if (gameBoard.cells[comb[0]] == 'x' && gameBoard.cells[comb[1]] == 'x' && gameBoard.cells[comb[2]] == 'x') {
                 title.innerText = 'Player 1 wins!!'
             } else if (gameBoard.cells[comb[0]] == 'o' && gameBoard.cells[comb[1]] == 'o' && gameBoard.cells[comb[2]] == 'o') {
@@ -66,14 +67,14 @@ const game = (function () {
                 player1.fillCell(cell)
                 player1.updateGameboard(cellData)
                 title.innerText = 'Player 2'
-                // checkForWinner()
+                checkForWinner()
                 turn++
 
             } else {
                 player2.fillCell(cell)
                 player2.updateGameboard(cellData)
                 title.innerText = 'Player 1'
-                // checkForWinner()
+                checkForWinner()
                 turn++
             }
 
