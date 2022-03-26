@@ -38,7 +38,7 @@ const game = (function () {
 
         for (let i = 0; i <= 7; i++) {
             let comb = combinations[i];
-            console.log(comb)
+            // console.log(comb)
 
             if (gameBoard.cells[comb[0]] == 'x' && gameBoard.cells[comb[1]] == 'x' && gameBoard.cells[comb[2]] == 'x') {
                 title.innerText = 'Player 1 wins!!'
