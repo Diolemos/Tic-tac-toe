@@ -90,9 +90,13 @@ const game = (function () {
                 turn++
                 if (singlePleyerMode == true) {
                     //computer fills cell, check for winner, turn ++,
-                    aiMove()
-                    checkForWinner()
-                    turn++
+                    setTimeout(() => {
+                        aiMove();
+                        checkForWinner();
+                        turn++
+                    }, 800);
+
+
 
                 }
 
