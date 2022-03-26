@@ -92,6 +92,7 @@ const game = (function () {
                     //computer fills cell, check for winner, turn ++,
                     setTimeout(() => {
                         aiMove();
+                        title.innerText = 'Player 1'
                         checkForWinner();
                         turn++
                     }, 800);
