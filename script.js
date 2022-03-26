@@ -5,12 +5,12 @@ let gameBoard = {
     cells: [null, null, null, null, null, null, null, null, null,]
 }
 let turn = 1
-const gameModeBtn = document.getElementById('singlePleyerMode')
+const gameModeBtn = document.getElementById('singlePlayerMode')
 let singlePleyerMode = false;
 
 
 
-gameModeBtn.addEventListener('onchange', () => {
+gameModeBtn.addEventListener('change', () => {
     if (gameModeBtn.checked == true) {
         singlePleyerMode = true
     } else {
@@ -45,6 +45,7 @@ const player2 = playerfactory('O')
 const game = (function () {
     const tiles = document.querySelectorAll('.boardcell');
     const title = document.querySelector('h1')
+
     function checkForWinner() { //Looks the board for winning combinations
 
         const combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
@@ -59,10 +60,14 @@ const game = (function () {
                 title.innerText = 'Player 2 wins!!'
             }
         }
-
-
-
     }// end of check for winner function
+
+    function AiMove() {
+        let random = Math.floor(Math.random() * 9)
+        if (gameBoard.cell[random] == null) {
+
+        }
+    }
 
 
 
