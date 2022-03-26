@@ -1,10 +1,23 @@
-// 'use strict'
+'use strict'
 
 
 let gameBoard = {
     cells: [null, null, null, null, null, null, null, null, null,]
 }
 let turn = 1
+const gameModeBtn = document.getElementById('singlePleyerMode')
+let singlePleyerMode = false;
+
+
+
+gameModeBtn.addEventListener('onchange', () => {
+    if (gameModeBtn.checked == true) {
+        singlePleyerMode = true
+    } else {
+        singlePleyerMode = false
+    }
+})
+
 
 
 
@@ -69,6 +82,10 @@ const game = (function () {
                 title.innerText = 'Player 2'
                 checkForWinner()
                 turn++
+                if (singlePleyerMode == true) {
+                    //computer fills cell, check for winner, turn ++, 
+                }
+
 
             } else {
                 player2.fillCell(cell)
