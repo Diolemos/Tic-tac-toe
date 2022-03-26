@@ -62,11 +62,12 @@ const game = (function () {
         }
     }// end of check for winner function
 
-    function AiMove() {
+    function aiMove() { // Computer move
         let random = Math.floor(Math.random() * 9)
-        if (gameBoard.cell[random] == null) {
-
-        }
+        if (gameBoard.cells[random] == null) {
+            tiles[random].innerText = 'O';
+            gameBoard.cells[random] = 'o'
+        } else { aiMove() }
     }
 
 
@@ -88,7 +89,11 @@ const game = (function () {
                 checkForWinner()
                 turn++
                 if (singlePleyerMode == true) {
-                    //computer fills cell, check for winner, turn ++, 
+                    //computer fills cell, check for winner, turn ++,
+                    aiMove()
+                    checkForWinner()
+                    turn++
+
                 }
 
 
