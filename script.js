@@ -25,11 +25,11 @@ gameModeBtn.addEventListener('change', () => {
 //playerFactory
 const playerfactory = function (marker) {
 
-    const fillCell = function (x) {
+    const fillCell = function (x) {//places the current player's marker on the desired spot on the gameBoard
         x.innerText = this.marker;
     }
 
-    const updateGameboard = function (event) {  //places the current player's marker on the desired spot
+    const updateGameboard = function (event) {  //Updates the gameboard array with the latest player move
 
         gameBoard.cells[event] = this.marker.toLowerCase()
 
@@ -46,7 +46,7 @@ const game = (function () {
     const tiles = document.querySelectorAll('.boardcell');
     const title = document.querySelector('h1')
 
-    function checkForWinner() { //Looks the board for winning combinations
+    function checkForWinner() { //Looks in the board for winning combinations
 
         const combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
@@ -62,7 +62,7 @@ const game = (function () {
         }
     }// end of check for winner function
 
-    function aiMove() { // Computer move
+    function aiMove() { // Computer move. For now, Just does ramdom legal moves
         let random = Math.floor(Math.random() * 9)
         if (gameBoard.cells[random] == null) {
             tiles[random].innerText = 'O';
@@ -71,7 +71,7 @@ const game = (function () {
     }
 
 
-
+    //Event listener
     tiles.forEach(function (tile) {
         tile.addEventListener('click', function (event) {
             let cell = event.target
@@ -89,7 +89,7 @@ const game = (function () {
                 checkForWinner()
                 turn++
                 if (singlePleyerMode == true) {
-                    //computer fills cell, check for winner, turn ++,
+                    //computer fills cell, checks for winner, turn ++,
                     setTimeout(() => {
                         aiMove();
                         title.innerText = 'Player 1'
