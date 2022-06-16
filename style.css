@@ -1,8 +1,17 @@
+html{
+    padding: 0px;
+    margin: 0PX;
+}
 body{
     width: 100vw;
     height: 100vh;
     text-align: center;
+    padding: 0px;
+    margin: 0PX;
  
+}
+h1{
+    margin-bottom: 150px;
 }
 
 .game-board{
@@ -11,10 +20,20 @@ body{
     grid-template-rows: repeat(3,1fr);
     width:400px ;
     height:400px ;
-    /* border: 2px outset black; */
-      
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
     
 }
+
+@media only screen and (max-width: 450px) {
+    .game-board{
+        width: 90vw;
+        height: 90vw;
+
+    }
+  }
 
 
 
