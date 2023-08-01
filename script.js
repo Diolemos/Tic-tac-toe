@@ -1,4 +1,11 @@
 // 'use strict'
+const Message =(()=>{
+    header =  document.querySelector("#header")
+    const render = (message)=> {
+       
+       header.innerText = message
+    }
+return {render,}})()
 
 startBtn = document.getElementById("start-btn");
 
@@ -49,6 +56,9 @@ const Game = (() => {
     
   };
   const handleClick = (event) => {
+    if (isGameOver){
+        return 
+    }
     let index = parseInt(event.target.id.split("-")[1]);
     if (gameBoardModule.getGameBoard()[index] !== "") {
       return;
@@ -57,9 +67,9 @@ const Game = (() => {
   
     if (checkForWin(gameBoardModule.getGameBoard(), players[currentPlayerIndex].marker)) {
       isGameOver = true;
-      alert(`${players[currentPlayerIndex].PlayerName}, Won!`); // Fixed the typo here, it should be `PlayerName`
+      Message.render(`${players[currentPlayerIndex].PlayerName}, Won!`)
     }else if(checkForTie(gameBoardModule.getGameBoard())){
-        alert("draw!")
+       Message.render("Draw!")
     }
   
     currentPlayerIndex = currentPlayerIndex == 0 ? 1 : 0;
