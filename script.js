@@ -53,6 +53,7 @@ const Game = (() => {
     currentPlayerIndex = 0;
     isGameOver = false;
     gameBoardModule.renderBoard();
+    startBtn.parentNode.removeChild(startBtn)
     
   };
   const handleClick = (event) => {
