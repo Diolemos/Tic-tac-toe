@@ -51,4 +51,5 @@ h1{
     border-style: outset;
     border-width: 3px;
     border-color: black;
+    cursor: pointer;
 }

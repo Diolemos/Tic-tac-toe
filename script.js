@@ -6,7 +6,7 @@ startBtn = document.getElementById("start-btn")
 
 const gameBoardModule = (()=>{
 
-    let gameBoard =  [null, null, null, null, null, null, null, null, null,]
+    let gameBoard =  ["", "", "", "", "", "", "", "", "",]
     
     let boardInnerHtml = ""
     const renderBoard = ()=>{
@@ -16,6 +16,11 @@ const gameBoardModule = (()=>{
             boardInnerHtml += `<div class='cell' id='cell-${index}'>${cell}</div>`
         })
         document.querySelector(".game-board").innerHTML = boardInnerHtml
+        const cells = document.querySelectorAll(".cell")
+        cells.forEach((cell)=>{
+            cell.addEventListener("click", Game.handleClick)
+        })
+       
     }
     
 
@@ -42,7 +47,11 @@ const Game = (()=>{
     isGameOver = false 
     gameBoardModule.renderBoard( )
     }
-    return {start}
+    const handleClick = (event)=>{
+        let index = parseInt(event.target.id.split("-")[1])
+        console.log(index)
+    }
+    return {start, handleClick}
 })()
 
 
