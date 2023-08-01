@@ -22,7 +22,9 @@ const gameBoardModule = (() => {
     gameBoard[index] = value;
   };
 
-  return { renderBoard, update };
+  const getGameBoard = ()=> gameBoard
+
+  return { renderBoard, update, getGameBoard };
 })();
 //player factory
 const Player = (PlayerName, marker) => {
@@ -49,7 +51,9 @@ const Game = (() => {
 
   const handleClick = (event) => {
     let index = parseInt(event.target.id.split("-")[1]);
-    console.log(index)
+    if (gameBoardModule.getGameBoard()[index] !== ""){
+        return
+    }
     gameBoardModule.update(index, players[currentPlayerIndex].marker);
     currentPlayerIndex = currentPlayerIndex == 0? 1: 0
     gameBoardModule.renderBoard();
