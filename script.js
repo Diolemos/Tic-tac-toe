@@ -51,6 +51,7 @@ const Game = (() => {
     let index = parseInt(event.target.id.split("-")[1]);
     console.log(index)
     gameBoardModule.update(index, players[currentPlayerIndex].marker);
+    currentPlayerIndex = currentPlayerIndex == 0? 1: 0
     gameBoardModule.renderBoard();
   };
   return { start, handleClick };
