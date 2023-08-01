@@ -57,16 +57,15 @@ const Game = (() => {
   
     if (checkForWin(gameBoardModule.getGameBoard(), players[currentPlayerIndex].marker)) {
       isGameOver = true;
-      header = document.getElementById("header"); // Fixed the typo here, it should be `getElementById`
-      header.innerText = `${players[currentPlayerIndex].PlayerName}, Won!`; // Fixed the typo here, it should be `PlayerName`
+      alert(`${players[currentPlayerIndex].PlayerName}, Won!`); // Fixed the typo here, it should be `PlayerName`
+    }else if(checkForTie(gameBoardModule.getGameBoard())){
+        alert("draw!")
     }
   
     currentPlayerIndex = currentPlayerIndex == 0 ? 1 : 0;
   
     gameBoardModule.renderBoard();
   };
-  
-  
   
   
   
@@ -105,6 +104,10 @@ function checkForWin(board){
         }
     }
     return false
+}
+
+function checkForTie(board){
+    return board.every(cell => cell !== "")
 }
 
 resetBtn = document.querySelector("#reset-btn")
