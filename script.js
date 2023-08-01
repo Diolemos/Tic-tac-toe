@@ -48,19 +48,64 @@ const Game = (() => {
     gameBoardModule.renderBoard();
     
   };
-
   const handleClick = (event) => {
     let index = parseInt(event.target.id.split("-")[1]);
-    if (gameBoardModule.getGameBoard()[index] !== ""){
-        return
+    if (gameBoardModule.getGameBoard()[index] !== "") {
+      return;
     }
     gameBoardModule.update(index, players[currentPlayerIndex].marker);
-    currentPlayerIndex = currentPlayerIndex == 0? 1: 0
+  
+    if (checkForWin(gameBoardModule.getGameBoard(), players[currentPlayerIndex].marker)) {
+      isGameOver = true;
+      header = document.getElementById("header"); // Fixed the typo here, it should be `getElementById`
+      header.innerText = `${players[currentPlayerIndex].PlayerName}, Won!`; // Fixed the typo here, it should be `PlayerName`
+    }
+  
+    currentPlayerIndex = currentPlayerIndex == 0 ? 1 : 0;
+  
     gameBoardModule.renderBoard();
   };
-  return { start, handleClick };
+  
+  
+  
+  
+  
+  
+  
+
+  const reset = ()=>{
+    for(let i = 0;i<9;i++){
+        gameBoardModule.update(i,"")
+    }
+    gameBoardModule.renderBoard()
+  }
+
+  return { start, handleClick,reset };
 })();
 
 startBtn.addEventListener("click", (e) => {
   Game.start();
 });
+
+function checkForWin(board){
+    const winningCombinations = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
+    ]
+    for(let i=0;i<winningCombinations.length;i++){
+        const [a,b,c] = winningCombinations[i]
+        if (board[a] && board[a]=== board[b] && board[a]==board[c]){
+                return true
+        }
+    }
+    return false
+}
+
+resetBtn = document.querySelector("#reset-btn")
+resetBtn.addEventListener("click",()=>{Game.reset()})
