@@ -42,36 +42,13 @@ h1{
     border-right: 1px solid black ;
     border-bottom:1px solid black ;
 }
-.cell2{
-    border-right: 1px solid black ;
-    border-bottom:1px solid black ;
-}
-.cell3{
-    /* border-right: 1px solid black ; */
-    border-bottom:1px solid black ;
-}
-.cell4{
-    border-right: 1px solid black ;
-    border-bottom:1px solid black ;
-}
-.cell5{
-    border-right: 1px solid black ;
-    border-bottom:1px solid black ;
-}
-.cell6{
-    /* border-right: 1px solid black ; */
-    border-bottom:1px solid black ;
-}
-.cell7{
-    border-right: 1px solid black;
-}
-.cell8{
-    border-right: 1px solid black ;
-    /* border-left:1px solid black ; */
-}
 
-.boardcell{
+
+.cell{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: outset;
+    border-width: 3px;
+    border-color: black;
 }
