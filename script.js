@@ -84,6 +84,8 @@ const Game = (() => {
   
 
   const reset = ()=>{
+    isGameOver = false
+    Message.render("Tic Tac Toe")
     for(let i = 0;i<9;i++){
         gameBoardModule.update(i,"")
     }
